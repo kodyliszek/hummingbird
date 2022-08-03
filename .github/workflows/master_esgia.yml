@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'esgia'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A0A92BBD74ED4136BF1F31E0A1338D1A }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CEEFDE8FAC9D41CFAD0EAA83747190D9 }}
