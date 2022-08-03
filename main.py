@@ -13,5 +13,5 @@ async def say_hello(name: str):
     return {"message": f"Hello {name}"}
 
 @app.get("/esgia/")
-async def root():
+async def esgia():
     return {"message": "Welcome to ESG Impact Assessment"}
