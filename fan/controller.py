@@ -13,9 +13,10 @@ class FanController:
         self.controller = self.init_controller()
 
     def generate_temperature_mf(self):
-        self.temperature['cold'] = fuzz.trimf(self.temperature.universe, [10, 10, 25])
-        self.temperature['medium'] = fuzz.trimf(self.temperature.universe, [15, 25, 35])
-        self.temperature['hot'] = fuzz.trimf(self.temperature.universe, [25, 40, 40])
+        self.temperature.automf(number=3, names=['cold', 'medium', 'hot'])
+        # self.temperature['cold'] = fuzz.dsigmf(self.temperature.universe, 0, 1, 20, 1)
+        # self.temperature['medium'] = fuzz.gaussmf(self.temperature.universe, 25, 5)
+        # self.temperature['hot'] = fuzz.dsigmf(self.temperature.universe, 30, 1, 50, 1)
 
     def generate_humidity_mf(self):
         self.humidity['dry'] = fuzz.trimf(self.humidity.universe, [20, 20, 60])
@@ -23,10 +24,10 @@ class FanController:
         self.humidity['wet'] = fuzz.trimf(self.humidity.universe, [60, 100, 100])
 
     def generate_fanspeed_mf(self):
-        # self.fan_speed.automf(3)
-        self.fan_speed['slow'] = fuzz.trimf(self.fan_speed.universe, [0, 0, 50])
-        self.fan_speed['moderate'] = fuzz.trimf(self.fan_speed.universe, [10, 50, 90])
-        self.fan_speed['fast'] = fuzz.trimf(self.fan_speed.universe, [50, 100, 100])
+        self.fan_speed.automf(number=3, names=['slow', 'moderate', 'fast'])
+        # self.fan_speed['slow'] = fuzz.trimf(self.fan_speed.universe, [0, 0, 50])
+        # self.fan_speed['moderate'] = fuzz.trimf(self.fan_speed.universe, [10, 50, 90])
+        # self.fan_speed['fast'] = fuzz.trimf(self.fan_speed.universe, [50, 100, 100])
 
     def generate_mf(self):
         self.generate_temperature_mf()
